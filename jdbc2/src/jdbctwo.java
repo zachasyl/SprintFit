@@ -13,7 +13,7 @@ public class jdbctwo {
             try {
 
                 Connection connection = DriverManager.getConnection
-                        ("jdbc:mysql://localhost:3306/jdbc", "root", "zxcvbnM1!3211");
+                        ("jdbc:mysql://localhost:3306/jdbc", "root", "");
 
                 Statement statement = connection.createStatement();
                 String add = "INSERT INTO people VALUES(6, 'Sally')";
