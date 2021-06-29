@@ -1,6 +1,5 @@
 package cs5500.project;
 
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -17,8 +16,11 @@ public class jsonStoryLineParse {
         .getResourceAsStream("storylineOneDay");
     Reader reader = new InputStreamReader(inputStream);
     JsonElement rootElement = JsonParser.parseReader(reader);
-    System.out.println(rootElement.getClass());
     JsonArray array = rootElement.getAsJsonArray();
+
+    System.out.println(array);
+    JsonElement element = array.get(0);
+    System.out.println(element.getClass());
     //JsonObject rootObject = rootElement.getAsJsonObject();
     //System.out.println(array);
 

@@ -10,22 +10,19 @@ class ParseJSON {
 
     public static void main(String[] args) {
 
-        String file = "/Users/zachary/Desktop/storyline.json";
+        String file = "storyline.json";
         try {
             String contents = new String((Files.readAllBytes(Paths.get(file))));
 
-
-            //this array will contan all the contents of the JSON string.
+            //this array will contain all the contents of the JSON string.
             // we can look up keys from the array to get data.
             JSONArray arr = new JSONArray(contents);
             //JSONArray arr = new JSONArray(jsonString);
-
 
             //for each entry in the array
             for (int x = 0; x < arr.length() ; x++) {
 
                 // For each object, we will find the key "date" which represents a string date
-
 
                 String date = arr.getJSONObject(x).getString("date");
 
@@ -35,9 +32,12 @@ class ParseJSON {
                 } else {
                     // we will find the key "summary" which represents an array.
                     JSONArray summary = arr.getJSONObject(x).getJSONArray("summary");
-
-                    // we will print out the date, as it is just a string.
                     System.out.println(date);
+                    System.out.println(summary);
+                    System.out.println(summary.get(0));
+                    // we will print out the date, as it is just a string.
+                    //System.out.println(date);
+
 
                     // We will search summary array (which contains objects)
                     for (int i = 0; i < summary.length(); i++) {
@@ -52,8 +52,8 @@ class ParseJSON {
                         String activity = summary.getJSONObject(i).getString("activity");
                         int duration = summary.getJSONObject(i).getInt("duration");
 
-                        System.out.println(activity);
-                        System.out.println(duration);
+//                        System.out.println(activity);
+//                        System.out.println(duration);
 
                     }
                 }

@@ -17,5 +17,6 @@ public class Main {
     Gson gson = new Gson();
     ActivityEntry date = gson.fromJson(dateJson, ActivityEntry.class);
     System.out.println(date);
+
   }
 }
