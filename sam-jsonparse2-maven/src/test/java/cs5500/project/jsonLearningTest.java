@@ -24,6 +24,7 @@ public class jsonLearningTest {
     JsonObject rootObject = rootElement.getAsJsonObject();
 
     JsonObject pages = rootObject.getAsJsonObject("query").getAsJsonObject("pages");
+    System.out.println(pages);
 
     JsonArray array = null;
 
@@ -31,6 +32,7 @@ public class jsonLearningTest {
     for (Entry<String, JsonElement> entry: pages.entrySet()) {
       JsonObject entryObject = entry.getValue().getAsJsonObject();
       array = entryObject.getAsJsonArray("revisions");
+      System.out.println(array);
     }
 
     Assert.assertEquals(4, array.size());

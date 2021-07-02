@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Default ignored files
 /shelf/
 /workspace.xml
@@ -6,3 +7,13 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+=======
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\kim.donghy\OneDrive - Northeastern University\School\Summer 21 MSCS\cs5500_foundationsofsoftware\project\project\JavaParserDraft\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+>>>>>>> db86562c6bae757214927a2f269e2c5b2d94a17d
