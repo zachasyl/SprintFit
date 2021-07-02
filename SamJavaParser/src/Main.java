@@ -37,7 +37,7 @@ public class Main {
     // See the output of the Hashmap formatted.
     summaryDictionary.forEach((k, v) -> {
       System.out.println("Date: " + k + System.lineSeparator() + "Summary: " + v);
-      System.out.println(v.size());
+      //System.out.println(v.size());
     });
 
     // Retrieves the summary for the specified date. Date must be in String format (e.g. "20130209")

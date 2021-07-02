@@ -1,24 +1,23 @@
+// We are using JUNIT4!
+
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
 public class MockDictionaryTest {
-    HashMap<String, Summary> hashmap = null;
+    HashMap<String, Summary> hashmap;
+    MockDictionary dictionary;
 
     @Before
     public void setUp() {
-        MockDictionary dictionary = new MockDictionary();
-        dictionary.printDictionary();
-        hashmap = dictionary.getDictionary();
-
+        dictionary = new MockDictionary();
     }
 
     @Test
     public void testSetup() {
-        assertEquals(1550, hashmap.get("20130209").getActivityList().
+        assertEquals(1550, dictionary.getDictionaryEntry().get("20130209").getActivityList().
                 get(0).getDistance(), .001);
     }
 }

@@ -15,9 +15,8 @@ public class Main {
         JDBC MYSQLConnection = new JDBC();
         MYSQLConnection.TableInsertion(
                 AllData.getActivitiesArray(),
-                AllData.getDurationsArray(), AllData.getCaloriesArray(),
+            AllData.getDurationsArray(), AllData.getCaloriesArray(),
                 AllData.getDistancesArray(), AllData.getDatesArray()
         );
-
     }
 }

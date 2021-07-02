@@ -80,7 +80,7 @@ public class ParseJSON {
      */
     public void FillArrays() {
 
-        String file = "/Users/zachary/Desktop/storyline.json";
+        String file = "resources/storyline.json";
         try {
             String contents = new String((Files.readAllBytes(Paths.get(file))));
 

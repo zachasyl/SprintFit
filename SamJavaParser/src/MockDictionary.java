@@ -2,13 +2,13 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class MockDictionary {
-    HashMap<String, Summary> dictionary = null;
+    HashMap<String, Summary> dictionaryEntry;
 
     public MockDictionary() {
-        this.dictionary = createDictionary();
-
+        this.createDictionary();
     }
-    public HashMap<String, Summary> createDictionary(){
+
+    public void createDictionary(){
 
         Activity mockActivity1 = new Activity("walking",
                 "walking", 1845.0, 1562.0,
@@ -21,18 +21,15 @@ public class MockDictionary {
         mockSummary.addActivity(mockActivity1);
         mockSummary.addActivity(mockActivity1);
 
-        HashMap<String, Activity> mockDictionary = new HashMap<>();
-        this.dictionary.put("20130209", mockSummary);
-
-        return this.dictionary;
+        this.dictionaryEntry.put("20130209", mockSummary);
     }
 
-    public HashMap<String, Summary> getDictionary() {
-        return this.dictionary;
+    public HashMap<String, Summary> getDictionaryEntry() {
+        return this.dictionaryEntry;
     }
 
     public void printDictionary() {
-        Set<String> keys = dictionary.keySet();
+        Set<String> keys = dictionaryEntry.keySet();
         for (String key: keys) {
             System.out.println(key);
         }
