@@ -5,30 +5,23 @@ import java.nio.file.Paths;
 
 /**
  * This class parses activity data from a JSON file.
- * Its objects have five arrays which can be filled with the JSON data
- * via the FillArrays method.
+ * It puts puts corresponding activities, calories, duration, distance, and date into
+ * an object. The object is then transferred to a MySQL database each iteration.
  */
 public class ParseJSON {
 
     /**
-     * Default constructor. FillArray method will load its arrays.
+     * Default constructor. FillObject method will load its attributes.
      */
     public ParseJSON(){
 
     }
 
     /**
-     * The following methods return new ArrayList objects.
-     *
-     * @return ArrayList of activities, duration, calories, distance, dates.
-     */
-
-
-    /**
-     * Reads the JSON files and fills the object's arrays.
+     * Reads the JSON files and fills the objects.
      *
      */
-    public void FillArrays() {
+    public void FillObjects() {
 
         String file = "/Users/zachary/Desktop/storyline.json";
         try {
@@ -45,25 +38,19 @@ public class ParseJSON {
             for (int x = 0; x < arr.length(); x++) {
                 ExerciseDTO exerciseDTO = new ExerciseDTO();
 
-
                 // For each object, we will find the key "date" which represents a string date
-
 
                 String date = arr.getJSONObject(x).getString("date");
                 // some of the summary arrays actually are not arrays and are null ;(
                 if (arr.getJSONObject(x).isNull("summary")) {
-                    //System.out.println("null");
                 } else {
                     // we will find the key "summary" which represents an array.
                     JSONArray summary = arr.getJSONObject(x).getJSONArray("summary");
-
-                    // we will print out the date, as it is just a string.
 
 
                     // We will search summary array (which contains objects)
                     for (int i = 0; i < summary.length(); i++) {
 
-                        //System.out.println(summary.get(i)); would print each summary array
 
                         // we will search within each OBJECT in summary array
                         // for the object key activity and key duration.
@@ -72,7 +59,7 @@ public class ParseJSON {
 
                         String activity = summary.getJSONObject(i).getString("activity");
                         int duration = summary.getJSONObject(i).getInt("duration");
-
+                        // Filling object attributes.
                         exerciseDTO.setActivity(activity);
                         exerciseDTO.setDuration(duration);
                         exerciseDTO.setDate(date);
@@ -91,6 +78,7 @@ public class ParseJSON {
 
                     }
                 }
+                // DAO object's method will send object to the database.
                 DAO.addExercise(exerciseDTO);
 
             }
