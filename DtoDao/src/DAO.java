@@ -5,17 +5,24 @@ import java.sql.Statement;
 
 public class DAO implements ExerciseDAO {
 
-    @Override
-    public ExerciseDTO getExercise(int id) {
+    /**
+     * Connects to JDBC and uses SQL select where statement to fill a row of the table
+     * with one object.
+     *
+     * @param id The identification attribute of the object we want to get.
+     *
+     * @returns ExerciseDgTO object.
+     */
+    public static ExerciseDTO getExercise(int id) {
         try {
             Connection connection = DriverManager.getConnection
                     ("jdbc:mysql://localhost:3306/Fitness", "root", "");
 
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM user WHERE id=" + id);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Fitness WHERE Fitnessid =" + id);
+            ExerciseDTO exerciseDTO = new ExerciseDTO();
 
             if (rs.next()) {
-                ExerciseDTO exerciseDTO = new ExerciseDTO();
 
                 exerciseDTO.setActivity(rs.getString("activity"));
                 exerciseDTO.setCalories(rs.getInt("calories"));
@@ -32,9 +39,18 @@ public class DAO implements ExerciseDAO {
         return null;
     }
 
+    /**
+     * Connects to JDBC and uses SQL insert statement to fill a row of the table
+     * with one object.
+     *
+     * @param exerciseDTO The object whose attributes will be passed to the mySQL database.
+     *
+     * @returns void.
+     */
     public static void addExercise(ExerciseDTO exerciseDTO) {
         try {
             Connection connection = DriverManager.getConnection
+                    // Technically this should read in information from text file.
                     ("jdbc:mysql://localhost:3306/Fitness", "root", "");
 
             Statement statement = connection.createStatement();
