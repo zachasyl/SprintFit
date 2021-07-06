@@ -1,7 +1,12 @@
+
+/**
+ * Interface for DAO class. Methods documented in class.
+ */
 public interface ExerciseDAO {
 
-
-    ExerciseDTO getExercise(int id);
+    static ExerciseDTO getExercise(int id) {
+        return null;
+    }
 
     static void addExercise(ExerciseDTO exerciseDTO) {
 
