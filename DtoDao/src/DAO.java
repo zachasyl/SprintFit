@@ -7,7 +7,7 @@ public class DAO implements ExerciseDAO {
 
     /**
      * Connects to JDBC and uses SQL select where statement to fill a row of the table
-     * with one object.
+     * with one object. This method is inspired by: https://dzone.com/articles/building-simple-data-access-layer-using-jdbc
      *
      * @param id The identification attribute of the object we want to get.
      *
