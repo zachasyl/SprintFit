@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d82efb4-fe89-49cd-9fa5-910303c2090a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../SamJavaParser/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SamJavaParser/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SamJavaParser/src/MockDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SamJavaParser/src/MockDictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SamJavaParser/test/MockDictionaryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SamJavaParser/test/MockDictionaryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JDBC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParseJSON.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jdbc2/JDBC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jdbc2/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jdbc2/ParseJSON.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParseJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParseJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +24,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.25.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DtoDao" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -79,6 +69,7 @@
       <workItem from="1625084879811" duration="118000" />
       <workItem from="1625085083468" duration="1370000" />
       <workItem from="1625088470264" duration="1050000" />
+      <workItem from="1625594698115" duration="386000" />
     </task>
     <servers />
   </component>
