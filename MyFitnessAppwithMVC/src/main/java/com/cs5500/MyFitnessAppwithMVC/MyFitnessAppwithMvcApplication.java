@@ -1,3 +1,8 @@
+/*
+This project is an adaptation of Code Java's Spring Boot CRUD Tutorial,
+which can be found at https://www.youtube.com/watch?v=u8a25mQcMOI&t=203s.
+ */
+
 package com.cs5500.MyFitnessAppwithMVC;
 
 import org.springframework.boot.SpringApplication;
