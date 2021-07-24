@@ -51,7 +51,7 @@ public class ActivityController {
   }
 
   @GetMapping("/activities/delete/{id}")
-  public String deleteUser(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
+  public String deleteActivity(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
     try {
       service.delete(id);
       ra.addFlashAttribute("message", "The Activity ID " + id + " has been deleted.");
