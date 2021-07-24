@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d82efb4-fe89-49cd-9fa5-910303c2090a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../MyFitnessAppwithMVC/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyFitnessAppwithMVC/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +25,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DtoDao" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -41,6 +42,19 @@
     <configuration name="jdbctwo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jdbctwo" />
       <module name="jdbc2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -70,6 +84,8 @@
       <workItem from="1625085083468" duration="1370000" />
       <workItem from="1625088470264" duration="1050000" />
       <workItem from="1625594698115" duration="386000" />
+      <workItem from="1627115735739" duration="228000" />
+      <workItem from="1627115991510" duration="1422000" />
     </task>
     <servers />
   </component>
