@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * This class represents the primary data object for our application. It is tagged with the Spring
+ * Boot @Entity tag, indicating to Spring that this object should be mapped onto our activities
+ * table.
+ */
 @Entity
 @Table(name = "activities")
 public class Activity {

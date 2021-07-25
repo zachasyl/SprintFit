@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This class connects the Activity Controller with an instance of the database. The service
+ * receives the CRUD instructions from the Controller and executes them on the repository.
+ */
 @Service
 public class ActivityService {
 

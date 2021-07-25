@@ -1,5 +1,9 @@
 package com.cs5500.MyFitnessAppwithMVC.storylineParser;
 
+/**
+ * This class represents the entry point for our storyline Parser. It reads the storyline.json file
+ * and inserts the data into MySQL using JDBC driver.
+ */
 public class ParserMain {
     /**
      * The main function creates a ParseJson object, AllData, and calls its ParseJson method

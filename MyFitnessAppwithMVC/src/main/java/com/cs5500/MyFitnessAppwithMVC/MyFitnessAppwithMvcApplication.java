@@ -8,6 +8,9 @@ package com.cs5500.MyFitnessAppwithMVC;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * This class is tagged as the entry point for the Spring Boot Application.
+ */
 @SpringBootApplication
 public class MyFitnessAppwithMvcApplication {
 

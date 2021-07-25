@@ -10,6 +10,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+/**
+ * This class serves as our Controller for the Activity class. It connects and handles the UI's
+ * CRUD links with an instance of the ActivityService class.
+ */
 @Controller
 public class ActivityController {
   @Autowired
