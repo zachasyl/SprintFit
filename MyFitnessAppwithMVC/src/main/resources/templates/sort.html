@@ -7,14 +7,14 @@
 </head>
 <body>
 <div class="container-fluid text-center">
-  <div><h2>Manage Activities</h2></div>
-      <div class="m-2">
+    <div><h2>Manage Activities</h2></div>
+    <div class="m-2">
         <a class="h3" th:href="@{/activities/new}">Add New Activity</a>
     </div>
 
-      <div class="m-2">
+    <div class="m-2">
         <a class="h3" th:href="@{/running}">Running Only</a>
-      </div>
+    </div>
 
     <!--/*@thymesVar id="message" type=""*/-->
     <div th:if="${message}" class="alert alert-success text-center">
@@ -37,7 +37,7 @@
             </tr>
             </thead>
             <tbody>
-            <th:block th:each="activity: ${activityList}">
+            <th:block th:each="activity: ${sortedList}">
                 <tr>
                     <td>[[${activity.id}]]</td>
                     <td>[[${activity.activityName}]]</td>
