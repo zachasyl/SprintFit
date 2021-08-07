@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Using Highcharts API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<body>
+    <div class="container-fluid text-center">
+        <a class="h2" th:href="@{/activities}">Back to Summaries</a>
+    </div>
+    <div id="container" style="width:550px; height:400px; margin: 0 auto"></div>
+
+    <script th:inline="javascript" language="JavaScript">
+        $(document).ready(function() {
+            let chart = {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            };
+            let title = {
+                text: 'Distance Traveled By Activity Type'
+            };
+            let tooltip = {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            };
+            let plotOptions = {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                                   'black'
+                        }
+                    }
+                }
+            };
+            let series = [{
+                type: 'pie',
+                name: 'Distance Traveled',
+                data: [
+                    ['Transport', [[${activityValues[0]}]]],
+                    ['Walking', [[${activityValues[1]}]]],
+                    ['Running', [[${activityValues[2]}]]],
+                    ['Other', [[${activityValues[3]}]]],
+                ]
+            }];
+            Highcharts.getOptions().colors = Highcharts.map(
+                Highcharts.getOptions().colors, function (color) {
+                    return {
+                        radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+                        stops: [
+                            [0, color],
+                            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                        ]
+                    };
+                }
+            );
+            let json = {};
+            json.chart = chart;
+            json.title = title;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#container').highcharts(json);
+        });
+    </script>
+
+</body>
+</html>
