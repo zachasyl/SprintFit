@@ -38,6 +38,22 @@ public class ActivityController {
     return "activity_form";
   }
 
+  @GetMapping("/running")
+  public String  RunningActivities(Model model) {
+    List<Activity> runningList = service.listRunning();
+    model.addAttribute("runningList", runningList);
+    return "running";
+  }
+
+  @GetMapping("/sort")
+  public String sort(Model model) {
+    {
+      List<Activity> sortedList = service.sort();
+      model.addAttribute("sortedList", sortedList);
+      return "sort";
+    }
+  }
+
   @PostMapping("/activities/save")
   public String saveActivity(Activity activity, RedirectAttributes ra) {
     service.save(activity);

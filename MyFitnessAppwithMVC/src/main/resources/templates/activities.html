@@ -12,6 +12,10 @@
         <a class="h3" th:href="@{/activities/new}">Add New Activity</a>
     </div>
 
+      <div class="m-2">
+        <a class="h3" th:href="@{/running}">Running Only</a>
+      </div>
+
     <!--/*@thymesVar id="message" type=""*/-->
     <div th:if="${message}" class="alert alert-success text-center">
         [[${message}]]
@@ -25,10 +29,11 @@
                 <th>ID</th>
                 <th>Activity Name</th>
                 <th>Duration</th>
-                <th>Calories</th>
+                <th><a class="h3" th:href="@{/sort}">Calories</a></th>
                 <th>Distance</th>
                 <th>Date</th>
                 <th></th>
+
             </tr>
             </thead>
             <tbody>

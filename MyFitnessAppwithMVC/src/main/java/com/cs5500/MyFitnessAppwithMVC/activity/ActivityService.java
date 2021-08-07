@@ -20,6 +20,14 @@ public class ActivityService {
     return (List<Activity>) repo.findAll();
   }
 
+  public List<Activity> listRunning() {
+    return (List<Activity>) repo.findRunning();
+  }
+
+  public List<Activity> sort() {
+    return (List<Activity>) repo.orderCalories();
+  }
+
   public void save(Activity activity) {
     repo.save(activity);
   }

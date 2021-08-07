@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Activities</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Activities</h2></div>
+
+
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Activity Name</th>
+                <th>Duration</th>
+                <th>Calories</th>
+                <th>Distance</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="activity: ${runningList}">
+                <tr>
+                    <td>[[${activity.id}]]</td>
+                    <td>[[${activity.activityName}]]</td>
+                    <td>[[${activity.duration}]]</td>
+                    <td>[[${activity.calories}]]</td>
+                    <td>[[${activity.distance}]]</td>
+                    <td>[[${activity.date}]]</td>
+
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
