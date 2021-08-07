@@ -31,7 +31,7 @@ public class ActivityController {
     return "activities";
   }
 
-  @GetMapping("/activities/new")
+  @GetMapping("/activity/new")
   public String showNewForm(Model model) {
     model.addAttribute("activity", new Activity());
     model.addAttribute("pageTitle", "Add New Activity");
@@ -54,14 +54,14 @@ public class ActivityController {
     }
   }
 
-  @PostMapping("/activities/save")
+  @PostMapping("/activity/save")
   public String saveActivity(Activity activity, RedirectAttributes ra) {
     service.save(activity);
     ra.addFlashAttribute("message", "The activity has been saved successfully.");
     return "redirect:/activities";
   }
 
-  @GetMapping("/activities/edit/{id}")
+  @GetMapping("/activity/edit/{id}")
   public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
     try {
       Activity activity = service.get(id);
@@ -74,7 +74,7 @@ public class ActivityController {
     }
   }
 
-  @GetMapping("/activities/delete/{id}")
+  @GetMapping("/activity/delete/{id}")
   public String deleteActivity(@PathVariable("id") Integer id, RedirectAttributes ra) {
     try {
       service.delete(id);
