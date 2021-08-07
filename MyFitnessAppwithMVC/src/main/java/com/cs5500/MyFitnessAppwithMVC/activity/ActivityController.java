@@ -10,6 +10,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+//TODO Look at endpoints and follow the conventional standards for a REST API (Single "Activity"...etc)
+//TODO Create another package for the API, maybe create a package of Controllers and inside, create a
+// rest API package
+// UI "ideally" should be utilizing the API to populate pages for the customer
 /**
  * This class serves as our Controller for the Activity class. It connects and handles the UI's
  * CRUD links with an instance of the ActivityService class.
@@ -55,7 +59,7 @@ public class ActivityController {
   }
 
   @GetMapping("/activities/delete/{id}")
-  public String deleteActivity(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
+  public String deleteActivity(@PathVariable("id") Integer id, RedirectAttributes ra) {
     try {
       service.delete(id);
       ra.addFlashAttribute("message", "The Activity ID " + id + " has been deleted.");
