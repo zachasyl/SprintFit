@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="text-center"><h2>[[${pageTitle}]]</h2></div>
 
-    <form th:action="@{/activities/save}" method="post" th:object="${activity}"
+    <form th:action="@{/activity/save}" method="post" th:object="${activity}"
           style="max-width: 500px; margin: 0 auto;">
         <input type="hidden" th:field="*{id}">
         <div class="border border-secondary rounded p-3">
