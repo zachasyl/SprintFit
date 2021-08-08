@@ -16,6 +16,7 @@ public class ActivityService {
   @Autowired
   private ActivityRepository repo;
 
+
   public List<Activity> listAll() {
     return (List<Activity>) repo.findAll();
   }

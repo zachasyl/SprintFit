@@ -18,4 +18,5 @@ public class MyFitnessAppwithMvcApplication {
 		SpringApplication.run(MyFitnessAppwithMvcApplication.class, args);
 	}
 
+
 }

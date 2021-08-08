@@ -9,81 +9,26 @@ import java.util.ArrayList;
 
 /**
  * This class parses activity data from a JSON file.
- * Its objects have five arrays which can be filled with the JSON data
- * via the FillArrays method.
+ * It puts puts corresponding activities, calories, duration, distance, and date into
+ * an object. The object is then transferred to a MySQL database each iteration.
  */
 public class ParseJSON {
 
-    private static ArrayList<String> activitiesArr = new ArrayList<String>();
-    private static ArrayList<Integer> durationsArr = new ArrayList<Integer>();
-    private static ArrayList<Integer> caloriesArr = new ArrayList<Integer>();
-    private static ArrayList<Integer> distancesArr = new ArrayList<Integer>();
-    private static ArrayList<String> datesArr = new ArrayList<String>();
-
     /**
-     * Construct a ParseJSON with the provided parameters. This constructor is not currently used;
-     * rather, the default constructor is used. This is because we do not need to
-     * instantiate ParseJSON objects with parameters; rather, we call FillArrays() to read JSON file
-     * and fill the arrays. Maybe use this for resting.
-     *
-     * @param activitiesArr    an ArrayList of activities
-     * @param durationsArr  color of piece, black or white.
-     * @param caloriesArr  color of piece, black or white.
-     * @param distancesArr  color of piece, black or white.
-     * @param datesArr  color of piece, black or white.
-     */
-    public ParseJSON(ArrayList<String> activitiesArr, ArrayList<Integer> durationsArr,
-                     ArrayList<Integer> caloriesArr, ArrayList<Integer> distancesArr,
-                     ArrayList<String> datesArr){
-        this.activitiesArr = activitiesArr;
-        this.durationsArr =durationsArr;
-        this.caloriesArr = caloriesArr;
-        this.distancesArr = distancesArr;
-        this.datesArr = datesArr;
-    }
-
-    /**
-     * Default constructor. FillArray method will load its arrays.
+     * Default constructor. FillObject method will load its attributes.
      */
     public ParseJSON(){
 
     }
 
     /**
-     * The following methods return new ArrayList objects.
+     * Reads the JSON files and fills the objects.
      *
-     * @return ArrayList of activities, duration, calories, distance, dates.
      */
-    public ArrayList<String> getActivitiesArray() {
-        // I am not sure if I should return this.activitiesArr instead like a typical getter.
-        // because an array is returned, I think it needs to be a separate object when called in main?
-        return new ArrayList<>(activitiesArr);
-    }
+    public void FillObjects() {
 
-    public ArrayList<Integer> getDurationsArray() {
-        return new ArrayList<>(durationsArr);
-    }
 
-    public ArrayList<Integer> getCaloriesArray() {
-        return new ArrayList<>(caloriesArr);
-    }
-
-    public ArrayList<Integer> getDistancesArray() {
-        return new ArrayList<>(distancesArr);
-    }
-
-    public ArrayList<String> getDatesArray() {
-        return new ArrayList<>(datesArr);
-    }
-
-    /**
-     * Reads the JSON files and fills the object's arrays.
-     *
-     * @returns void.
-     */
-    public void FillArrays() {
-
-        String file = "src/main/resources/storyline.json";
+        String file = "/Users/zachary/Desktop/storyline.json";
         try {
             String contents = new String((Files.readAllBytes(Paths.get(file))));
 
@@ -96,25 +41,30 @@ public class ParseJSON {
 
             //for each entry in the array
             for (int x = 0; x < arr.length(); x++) {
+                ExerciseDTO exerciseDTO = new ExerciseDTO();
 
                 // For each object, we will find the key "date" which represents a string date
 
 
-                String date = arr.getJSONObject(x).getString("date");
+
+
+               // String date = arr.getJSONObject(x).getString("date");
                 // some of the summary arrays actually are not arrays and are null ;(
                 if (arr.getJSONObject(x).isNull("summary")) {
-                    //System.out.println("null");
                 } else {
                     // we will find the key "summary" which represents an array.
+                    //for each object we get the summary array
                     JSONArray summary = arr.getJSONObject(x).getJSONArray("summary");
-
-                    // we will print out the date, as it is just a string.
 
 
                     // We will search summary array (which contains objects)
                     for (int i = 0; i < summary.length(); i++) {
 
-                        //System.out.println(summary.get(i)); would print each summary array
+                        
+                        StringBuilder date = new StringBuilder(arr.getJSONObject(x).getString("date"));
+                        date.insert(4, "-");
+                        date.insert(7, "-");
+                        String finalDate = date.toString();
 
                         // we will search within each OBJECT in summary array
                         // for the object key activity and key duration.
@@ -123,28 +73,36 @@ public class ParseJSON {
 
                         String activity = summary.getJSONObject(i).getString("activity");
                         int duration = summary.getJSONObject(i).getInt("duration");
-                        activitiesArr.add(activity);
-                        durationsArr.add(duration);
-                        datesArr.add(date);
+                        // Filling object attributes.
+                        exerciseDTO.setActivity(activity);
+                        exerciseDTO.setDuration(duration);
+                        exerciseDTO.setDate(finalDate);
 
 
                         if (summary.getJSONObject(i).isNull("calories")) {
-                            caloriesArr.add(0);
+                            exerciseDTO.setCalories(0);
 
                         } else {
 
                             int calories = summary.getJSONObject(i).getInt("calories");
-                            caloriesArr.add(calories);
+                            exerciseDTO.setCalories(calories);
                         }
                         int distance = summary.getJSONObject(i).getInt("distance");
-                        distancesArr.add(distance);
+                        exerciseDTO.setDistance(distance);
 
                     }
                 }
+                // DAO object's method will send object to the database.
+                DAOJDBC.addExercise(exerciseDTO);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
+
+
+
+

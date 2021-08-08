@@ -95,4 +95,5 @@ public class Activity {
         ", Date='" + date + '\'' +
         '}';
   }
+
 }
