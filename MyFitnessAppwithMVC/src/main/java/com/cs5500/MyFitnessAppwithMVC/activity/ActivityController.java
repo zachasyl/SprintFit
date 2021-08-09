@@ -35,8 +35,6 @@ public class ActivityController {
     return "activity_form";
   }
 
-
-
   @GetMapping("/running")
   public String  RunningActivities(Model model) {
     List<Activity> runningList = service.listRunning();

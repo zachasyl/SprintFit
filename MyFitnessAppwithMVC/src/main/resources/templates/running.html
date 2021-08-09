@@ -7,9 +7,15 @@
 </head>
 <body>
 <div class="container-fluid text-center">
-    <div><h2>Manage Activities</h2></div>
-
-
+    <div class="container-fluid text-center">
+        <div><h2>Manage Activities</h2></div>
+        <div class="m-2">
+            <a class="h3" th:href="@{/activity/new}">| Add New Activity |</a>
+            <a class="h3" th:href="@{/running}">| Running Only | </a>
+            <a class="h3" th:href="@{/uploadJson}">| Upload Json |</a>
+            <a class="h3" th:href="@{/barGraphs}">| Bar Graphs | </a>
+            <a class="h3" th:href="@{/highchartview}">| Highchart Pie Chart | </a>
+        </div>
     <!--/*@thymesVar id="message" type=""*/-->
     <div th:if="${message}" class="alert alert-success text-center">
         [[${message}]]

@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload File</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
 <body>
+<div class="container-fluid text-center">
+  <div><h2>Manage Activities</h2></div>
+  <div class="m-2">
+    <a class="h3" th:href="@{/activity/new}">| Add New Activity |</a>
+    <a class="h3" th:href="@{/running}">| Running Only | </a>
+    <a class="h3" th:href="@{/uploadJson}">| Upload Json |</a>
+    <a class="h3" th:href="@{/barGraphs}">| Bar Graphs | </a>
+    <a class="h3" th:href="@{/highchartview}">| Highchart Pie Chart | </a>
+  </div>
 
 <h1>File must be named storylinetest.json</h1>
 
