@@ -1,9 +1,6 @@
 package com.cs5500.MyFitnessAppwithMVC.storylineParser;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DAOJDBC implements ExerciseDAO {
 
@@ -49,9 +46,10 @@ public class DAOJDBC implements ExerciseDAO {
      *
      * @returns void.
      */
-    public static void addExercise(ExerciseDTO exerciseDTO) {
+    public static void addExercise(ExerciseDTO exerciseDTO) throws SQLException {
+        Connection connection = null;
         try {
-            Connection connection = DriverManager.getConnection
+             connection = DriverManager.getConnection
                     // Technically this should read in from text file.
                     ("jdbc:mysql://localhost:3306/Fitness", "root", "zxcvbnM1!3211");
 
@@ -64,8 +62,18 @@ public class DAOJDBC implements ExerciseDAO {
 
             statement.executeUpdate(add);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        }catch(SQLException sqlEx){
+        /*To catch any SQLException thrown during DB
+         *Operations and continue processing like sending alert to admin
+         *that exception occurred.
+         */
+    }finally{
+        /*This block should be added to your code
+         * You need to release the resources like connections
+         */
+        if(connection!=null)
+            connection.close();
+    }
+
     }
 }

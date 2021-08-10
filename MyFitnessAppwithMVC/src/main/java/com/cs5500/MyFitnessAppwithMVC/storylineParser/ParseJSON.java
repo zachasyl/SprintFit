@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +29,7 @@ public class ParseJSON {
     public void FillObjects() {
 
 
-        String file = "/Users/zachary/Desktop/storyline.json";
+        String file = "src/main/resources/storyline.json";
         try {
             String contents = new String((Files.readAllBytes(Paths.get(file))));
 
@@ -96,7 +97,7 @@ public class ParseJSON {
                 DAOJDBC.addExercise(exerciseDTO);
             }
 
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
 
