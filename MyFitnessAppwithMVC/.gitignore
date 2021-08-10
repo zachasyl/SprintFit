@@ -1,5 +1,6 @@
 application.properties
 HELP.md
+storylineParser
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
