@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class MainController {
-
   //This stub tells Spring that the app should show the Home Page by default.
   @GetMapping("")
   public String showHomePage() {

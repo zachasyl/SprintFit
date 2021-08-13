@@ -49,44 +49,6 @@ public class ActivityController {
     return "sort";
   }
 
-  @GetMapping("/highchartview")
-  public String showHighChart(Model model) {
-    List<String> ActivityNames = new ArrayList<>();
-    ActivityNames.add("transport");
-    ActivityNames.add("walking");
-    ActivityNames.add("running");
-    ActivityNames.add("other");
-    model.addAttribute("activityNames", ActivityNames);
-
-    List<Integer> ActivityValues = new ArrayList<>();
-    Integer transport = 0;
-    Integer walking = 0;
-    Integer running = 0;
-    Integer other = 0;
-
-    List<Activity> activityList = service.listAll();
-    for (Activity a : activityList) {
-      //System.out.println(a.getDistance());
-      if (a.getActivityName().equalsIgnoreCase("transport")) {
-        transport += a.getDistance();
-      } else if (a.getActivityName().equalsIgnoreCase("walking")) {
-        walking += a.getDistance();
-      } else if (a.getActivityName().equalsIgnoreCase("running")) {
-        running += a.getDistance();
-      } else {
-        other += a.getDistance();
-      }
-    }
-    ActivityValues.add(transport);
-    ActivityValues.add(walking);
-    ActivityValues.add(running);
-    ActivityValues.add(other);
-
-    model.addAttribute("activityValues", ActivityValues);
-
-    return "highchartview";
-  }
-
   @PostMapping("/activity/save")
   public String saveActivity(Activity activity, RedirectAttributes ra) {
     service.save(activity);
