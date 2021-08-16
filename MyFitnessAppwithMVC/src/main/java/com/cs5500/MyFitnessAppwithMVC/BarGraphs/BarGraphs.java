@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * This class represents the data object for the bar graphs page. It is tagged with the Spring
+ * Boot @Entity tag, indicating to Spring that this object should be mapped onto our activities
+ * table.
+ */
 @Entity
 public class BarGraphs {
 
