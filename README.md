@@ -18,6 +18,7 @@ Four graphs are generated based on the data and can be navigate to via the navig
 **
 
 Note that you will not beed to install or download any of the following for installation, as they are packaged with the program; see installation section for installation.
+
 	•	Spring Boot with Maven framework
 	•	JDBC mysql connector jar to connect to database.
 	•	Org.json library for parsing JSONs
@@ -27,7 +28,9 @@ Note that you will not beed to install or download any of the following for inst
 
 
 **Installing
-**	•	Simply clone from Github and open with IntelliJ.
+**	
+
+	•	Simply clone from Github and open with IntelliJ.
 	•	Under the Maven tab, the user may need to click Reload All Maven Projects, Generate Sources and Update Folders For All Projects, as well as Download Sources and/or Documentation. The user should then restart IntelliJ.
 
 
