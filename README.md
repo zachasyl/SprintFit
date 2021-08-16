@@ -16,6 +16,7 @@ Four graphs are generated based on the data and can be navigate to via the navig
 
 **Dependencies
 **
+
 Note that you will not beed to install or download any of the following for installation, as they are packaged with the program; see installation section for installation.
 	•	Spring Boot with Maven framework
 	•	JDBC mysql connector jar to connect to database.
