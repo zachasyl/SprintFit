@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This class serves as our Controller for the BarGraphs class. It interacts directly with the
+ * BarGraphsRepository when there is a request from the UI (no service layer)
+ */
 @Controller
 public class BarGraphsControllerWeb {
     @Autowired
@@ -23,10 +27,15 @@ public class BarGraphsControllerWeb {
             model.addAttribute("name", "No Match");
         }
 
+ /** prepares the MVC model that will be used to generate the bar graphs.
+  *these statistics will fill graph values and labels
+  */
+
         Integer totalRunning =  barGraphsRepository.sumCaloriesRunning();
         model.addAttribute("runValue", totalRunning);
 
-
+        // this nested list is used for graph labels, so that the bars of the bar graph can be labeled
+        // by the most recent 5 years in the barGraphs.html
         List<List<Integer>> calsPerYear =  barGraphsRepository.caloriesEachYear();
 
         model.addAttribute("calsPerYear", calsPerYear);
