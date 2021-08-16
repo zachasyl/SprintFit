@@ -9,6 +9,11 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+
+/**
+ * This interface extends the Spring framework's Crud Repository, which allows for generic
+ * CRUD operations pertaining specifically to bar graphs.
+ */
 public interface BarGraphsRepository extends CrudRepository<BarGraphs, Long> {
 
 
