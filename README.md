@@ -45,7 +45,9 @@ The calories burned per year bar graph will not load unless there are at least f
 
 **Authors**
 
-Zachary Sylvane
-Donghyeon Kim (Sam)
-Pradeepti Reddy Tandra
+•Zachary Sylvane
+
+•Donghyeon Kim (Sam)
+
+•Pradeepti Reddy Tandra
 
